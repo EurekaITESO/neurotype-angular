@@ -8,6 +8,7 @@ import { authGuard } from './guards/auth.guard';
 import { MainComponent } from './pages/dashboard/main/main.component';
 import { WorkComponent } from './pages/dashboard/work/work.component';
 import { CalendarComponent } from './pages/dashboard/calendar/calendar.component';
+import { SelectPlanComponent } from './pages/select-plan/select-plan.component';
 
 export const routes: Routes = [
     {path:'', component:HomeComponent},
@@ -19,5 +20,6 @@ export const routes: Routes = [
         {path:'calendar', component:CalendarComponent}
     ]
     },
+    {path: 'select-plan', component:SelectPlanComponent},
     {path: '**', component: NotFoundComponent}
 ];

@@ -1,0 +1,69 @@
+.main{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.svgs{
+    position: absolute;
+    height: 60vh;
+}
+
+#b1{
+    top: -5vh;
+    right: 15vh;
+}
+
+#b2{
+    top: 10vh;
+    left: -10vh;
+}
+
+#b3{
+    top: 55vh;
+    left: 45vh;
+}
+
+#b4{
+    top: 40vh;
+    right: -10vh;
+}
+
+.planes{
+    position: absolute;
+    top: 35vh;
+    left: 21vh;
+    display: flex;
+    justify-content: center;
+    gap: 11vh;
+}
+
+.plans{
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+    width: 39vh;
+    height: 50vh;
+    cursor: pointer;
+    h2{
+        font-weight: 500;
+        font-size: 5vh;
+    }
+    .icon{
+        margin-top: 20vh;
+        font-size: 3.5vh;
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    }
+}
+
+.plus{
+    margin-left: 10vh;
+}
+
+.pro{
+    margin-left: 10vh;
+}
