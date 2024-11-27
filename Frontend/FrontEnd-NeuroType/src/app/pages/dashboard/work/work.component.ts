@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 import { UserService } from '../../../services/user.service';
 import { debounceTime } from 'rxjs';
 import { response } from 'express';
+import { error } from 'console';
 
 @Component({
   selector: 'app-work',
@@ -24,21 +25,16 @@ export class WorkComponent implements OnInit{
   }
 
   ngOnInit(): void {
-      this.form.get('note')?.valueChanges.pipe(
-        debounceTime(5000)
-      ).subscribe(value =>{
-        console.log(value)
-        this.userService.postNote(value).subscribe({
-          next: () =>{
-            const today = new Date;
-            this.savedMessage = 'Saved on ' + today.getTime;
-          },
-          error: (err)=>{
-            const today = new Date;
-            this.savedMessage = 'Failed to save note ' + today.toLocaleString();
-          }
-        })
-      })
+  }
+
+  submitNote(){
+    this.userService.postNote(this.form.get("note")?.value).subscribe({
+      next: (res)=>{
+        console.log(res)
+      }, error:(err)=>{
+        console.error(err)
+      }}
+    )
   }
 
 

@@ -12,14 +12,6 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
-export class DashboardComponent implements OnInit{
-
-  notes: Notes | null = null;
-
-  constructor(private userService: UserService){}
-
-  ngOnInit(): void {
-      
-  }
+export class DashboardComponent{
  
 }

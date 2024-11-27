@@ -14,8 +14,7 @@ export class HttpService {
     private authService: AuthService,
   ) {}
 
-  get<T>(endpoint: string) {
-    const headers = this.createAuthHeaders();
+  get<T>(endpoint: string, headers?: HttpHeaders) : Observable<T> {
     return this.httpClient.get<T>(`${this.apiUrl}${endpoint}`, { headers });
   }
 
@@ -23,10 +22,4 @@ export class HttpService {
     return this.httpClient.post<T>(`${this.apiUrl}${endpoint}`, body, options);
   }
 
-  private createAuthHeaders(): HttpHeaders {
-    const token = this.authService.getToken();
-    return new HttpHeaders({
-      Authorization: `Bearer ${token}`,
-    });
-  }
 }

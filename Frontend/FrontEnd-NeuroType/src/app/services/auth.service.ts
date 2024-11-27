@@ -4,18 +4,32 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService implements OnInit {
-  private tokenSubject = new BehaviorSubject<string | null>(null);
+export class AuthService {
+  private tokenSubject = new BehaviorSubject<string | null>(this.getStoredToken());
   public token$ = this.tokenSubject.asObservable();
 
 
   constructor() {
   }
 
-  ngOnInit(): void {
-    const storedToken = localStorage.getItem('token');
-    this.tokenSubject.next(storedToken); 
+  private isLocalStorageAvailable(): boolean {
+    try {
+      const testKey = '__test__';
+      localStorage.setItem(testKey, testKey);
+      localStorage.removeItem(testKey);
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
+
+  private getStoredToken(): string | null {
+    if (this.isLocalStorageAvailable()) {
+      return localStorage.getItem('token');
+    }
+    return null;
+  }
+
 
   setToken(token: string): void {
     localStorage.setItem('token', token);
