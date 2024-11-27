@@ -21,6 +21,7 @@ export class CalendarComponent implements OnInit {
     this.userService.userNotes$.subscribe({
       next: (notes)=>{
         this.notes = notes;
+        console.log(this.notes)
       },error: (err)=>{
         console.error(err)
       }
@@ -28,7 +29,6 @@ export class CalendarComponent implements OnInit {
     
     this.userService.getUserNotes()
 
-    console.log(this.notes)
 
 
 
@@ -117,7 +117,7 @@ export class CalendarComponent implements OnInit {
 
   setRandomColors(): void {
     const colors = ['red', 'yellow', 'blue', 'green',];
-    const randomDaysIndices = [3, 7, 12, 18, 25,1,]; // Índices de días seleccionados aleatoriamente
+    const randomDaysIndices = [3, 7, 12, 18, 24,1,]; // Índices de días seleccionados aleatoriamente
     randomDaysIndices.forEach((index, i) => {
       if (index < this.calendarDays.length) {
         this.calendarDays[index].color = colors[i % colors.length];

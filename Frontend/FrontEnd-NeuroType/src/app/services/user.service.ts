@@ -11,7 +11,7 @@ import { HttpHeaders } from "@angular/common/http";
   providedIn: "root",
 })
 export class UserService {
-  private userNotes = new BehaviorSubject<Notes[] | null>([]);
+  private userNotes = new BehaviorSubject<Notes[]>([]);
   public userNotes$ = this.userNotes.asObservable();
 
   constructor(

@@ -30,7 +30,7 @@ export class WorkComponent implements OnInit{
   submitNote(){
     this.userService.postNote(this.form.get("note")?.value).subscribe({
       next: (res)=>{
-        console.log(res)
+        console.log('nota agregada', res)
       }, error:(err)=>{
         console.error(err)
       }}

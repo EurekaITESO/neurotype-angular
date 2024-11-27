@@ -22,13 +22,13 @@ export class MainComponent implements OnInit {
     this.userService.userNotes$.subscribe({
       next: (notes)=>{
         this.notes = notes;
+        console.log(this.notes)
       },error: (err)=>{
         console.error(err)
       }
     })
     
     this.userService.getUserNotes()
-    console.log(this.notes)
 
   }
 }
